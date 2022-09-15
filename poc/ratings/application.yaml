@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ratings
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/junjieyjj/arocd-app-config.git
+    targetRevision: HEAD
+    path: poc/ratings
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: poc
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
