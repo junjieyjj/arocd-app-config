@@ -4,23 +4,9 @@ metadata:
   name: productpage
 spec:
   hosts:
-  - "*"
-  gateways:
-  - bookinfo-gateway
+  - productpage
   http:
-  - match:
-    - uri:
-        exact: /productpage
-    - uri:
-        prefix: /static
-    - uri:
-        exact: /login
-    - uri:
-        exact: /logout
-    - uri:
-        prefix: /api/v1/products
-    route:
+  - route:
     - destination:
         host: productpage
-        port:
-          number: 9080
+        subset: v1
