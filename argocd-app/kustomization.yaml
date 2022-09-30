@@ -1,0 +1,13 @@
+resources:
+- poc/*.yaml
+
+# configMapGenerator:
+# - name: details
+#   files:
+#   - config/details.conf
+
+# generatorOptions:
+#   disableNameSuffixHash: true
+
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
